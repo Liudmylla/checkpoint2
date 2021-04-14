@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Model\AccessoryManager;
 use App\Model\CupcakeManager;
+use App\Service\ColorGenerator;
 
 /**
  * Class CupcakeController
@@ -67,7 +68,11 @@ class CupcakeController extends AbstractController
     {
         $cupcakeManager = new CupcakeManager();
         $cupcake = $cupcakeManager->selectOneCupcakeById($id);
-    return $this->twig->render('Cupcake/show.html.twig', ['cupcake'=>$cupcake]);
+        $colors = array($cupcake['color1'],$cupcake['color2'],$cupcake['color3']);
+        $colorGenerator = new ColorGenerator();
+        $color=$colorGenerator->generateBackground($colors);
+        
+    return $this->twig->render('Cupcake/show.html.twig', ['cupcake'=>$cupcake, 'color' => $color]);
 
     }
   
