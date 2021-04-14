@@ -5,7 +5,7 @@
     <div class="main-container">
         <h1>My cupcakes</h1>
         <div class="cupcake-list" id="cupcake-list">
-        {% for cupcake in cupcakes %}
+        {% for cupcake in cupcakes | sort %}
             <div class="cupcake-item">
                 <a href="/cupcake/show/{{ cupcake.id }}">
                     {% include 'Cupcake/_cupcake.html.twig' %}
