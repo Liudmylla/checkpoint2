@@ -20,9 +20,9 @@ namespace App\Service;
              $green =+ hexdec($color[3].$color[4]);
              $blue =+ hexdec($color[5].$color[6]);
         }
-        $red = dechex($red/3);
-        $green = dechex($green/3);
-        $blue = dechex($blue/3);
+        $red = dechex(round($red/3));
+        $green = dechex(round($green/3));
+        $blue = dechex(round($blue/3));
         $averageColor = $averageColor . $red . $green . $blue;
         return $averageColor;
     }
